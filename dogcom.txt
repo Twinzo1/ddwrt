@@ -4,7 +4,7 @@ nvram set dogcom_enable="0" #0 or 1 ;"1" is start
 #---------Select the drcom_version----------
 nvram set dogcom_version=""  #P or D ; Must be Capiatl
 #--------------version P--------------------
-nvram set dogcom_server="" 
+nvram set dogcom_server="" #有类似"\x2d"的，要输入为"\\x2d",双反斜杆
 nvram set dogcom_pppoe_flag=""
 nvram set dogcom_keep_alive2_flag=""
 nvram commit
