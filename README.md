@@ -4,7 +4,7 @@
 
 使用教程：
 
-wget https://raw.githubusercontent.com/Twinzo1/ddwrt/master/ddwrt-ar71xx-master.zip --no-check-certificate
+wget https://raw.githubusercontent.com/Twinzo1/ddwrt/master/dogcom_ar71xx --no-check-certificate
 
 #下载dogcom
 
