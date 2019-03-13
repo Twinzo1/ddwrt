@@ -1,0 +1,35 @@
+#version P need to add \r\n to dial
+#---------Start drcom-----------------------
+nvram set dogcom_enable="0" #0 or 1 ;"1" is start
+#---------Select the drcom_version----------
+nvram set dogcom_version=""  #P or D ; Must be Capiatl
+#--------------version P--------------------
+nvram set dogcom_server="" 
+nvram set dogcom_pppoe_flag=""
+nvram set dogcom_keep_alive2_flag=""
+nvram commit
+#--------------version D--------------------
+nvram set dogcom_username=""
+nvram set dogcom_password=""
+nvram set dogcom_host_name=""
+nvram set dogcom_host_os=""
+nvram set dogcom_host_ip=""
+nvram set dogcom_dhcp_server=""
+nvram set dogcom_mac=""
+nvram set dogcom_PRIMARY_DNS=""
+nvram set dogcom_AUTH_VERSION=""
+nvram set dogcom_KEEP_ALIVE_VERSION=""
+nvram set dogcom_CONTROLCHECKSTATUS=""
+nvram set dogcom_ADAPTERNUM=""
+nvram set dogcom_IPDOG=""
+nvram commit
+#-----------------------------------------------------------
+#Copy and paste Start drcom, version selection, version P,or version D commands to the 
+#command line to run. Boot startup must be saved in the open section
+#Enter "/tmp/dogcom.sh" on the command line to run the command
+#------------Enable reconnection script command-------------
+*/1 * * * * /tmp/netmac.sh  #Once a minute.
+*/5 * * * * /tmp/netmac.sh  #Test it every five minutes.
+*/10 * * * * /tmp/netmac.sh  #Test every ten minutes.
+#To open, add one of the above commands to the timing task is ok
+#If the network connection fails, the script can automatically change the Mac address
