@@ -4,11 +4,13 @@
 
 使用教程：
 
+将以下命令保存在启动指令之中，将dogcom.txt内容保存在自定义指令中，其余内容请查看dogcom.txt
+
 wget https://raw.githubusercontent.com/Twinzo1/ddwrt/master/dogcom_ar71xx --no-check-certificate
 
 #下载dogcom
 
-wget https://raw.githubusercontent.com/Twinzo1/ddwrt/master/ddwrt-ar71xx-master.zip --no-check-certificate
+wget https://raw.githubusercontent.com/Twinzo1/ddwrt/master/dogcom.sh --no-check-certificate
 
 #下载dogcom.sh
 
