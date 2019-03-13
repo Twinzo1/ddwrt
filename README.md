@@ -1,0 +1,3 @@
+专门为ddwrt使用dogcom新建的repository
+
+在启动时先拨号，联网然后下载dogcom程序和脚本。
