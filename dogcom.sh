@@ -126,7 +126,7 @@ start()
 		echo $tmp_IPDOG >> $curdir
 	fi
 	
-	dogcom -m $mode -c /tmp/dogcom.conf -e -d 
+	/tmp/dogcom -m $mode -c /tmp/dogcom.conf -e -d 
 }
 
 start
