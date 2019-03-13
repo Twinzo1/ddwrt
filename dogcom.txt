@@ -1,6 +1,4 @@
 #version P need to add \r\n to dial
-#---------Start drcom-----------------------
-nvram set dogcom_enable="0" #0 or 1 ;"1" is start
 #---------Select the drcom_version----------
 nvram set dogcom_version=""  #P or D ; Must be Capiatl
 #--------------version P--------------------
@@ -24,6 +22,9 @@ nvram set dogcom_ADAPTERNUM=""
 nvram set dogcom_IPDOG=""
 nvram commit
 #-----------------------------------------------------------
+#---------Start drcom-----------------------
+nvram set dogcom_enable="0" #0 or 1 ;"1" is start
+#--------------------------------------------------
 #Copy and paste Start drcom, version selection, version P,or version D commands to the 
 #command line to run. Boot startup must be saved in the open section
 #Enter "/tmp/dogcom.sh" on the command line to run the command
