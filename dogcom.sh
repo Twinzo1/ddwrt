@@ -9,19 +9,19 @@
 #nvram set dogcom_enable="0"   #关闭dogcom，请注释上一行(加#号)
 
 #--------------选择drcom版本--------------
-nvram set dogcom_version="P"  #P版，如果使用D版，请在前面加上#号
+#nvram set dogcom_version="P"  #P版，如果使用D版，请在前面加上#号
 #nvram set dogcom_version="D"  #D版(需去掉前面#号)，如果使用P版，请在前面加上#号
 #-----------------------------------------
 
 
 #---------断线重连脚本，默认生成----------
-nvram set net_check="1"   #启动脚本，请注释下一行(加#号)
+#nvram set net_check="1"   #启动脚本，请注释下一行(加#号)
 #nvram set net_check="0"   #关闭脚本，请注释上一行(加#号)
 #网络连接失败时，该脚本可以自动更改mac地址
 #------------开启重连脚本命令-------------
-*/1 * * * * /tmp/netmac.sh  #一分钟检测一次
-*/5 * * * * /tmp/netmac.sh  #五分钟检测一次
-*/10 * * * * /tmp/netmac.sh  #十分钟检测一次
+# */1 * * * * /tmp/netmac.sh  #一分钟检测一次
+# */5 * * * * /tmp/netmac.sh  #五分钟检测一次
+# */10 * * * * /tmp/netmac.sh  #十分钟检测一次
 #如需开启，请将其中上述一条命令添加到定时任务中
 netsh(){
 	cat>/tmp/netmac.sh<<EOF	
@@ -29,8 +29,8 @@ netsh(){
 #Cpyright by Twizo<1282055288@qq.com>
 
 sto(){ 
-	stom=$(nvram get mac_clone_enable  2>/dev/null)
-	if [ "$stom"x = "1"x ]; then
+	stom=\$(nvram get mac_clone_enable  2>/dev/null)
+	if [ "\$stom"x = "1"x ]; then
 		nvram set mac_clone_enable="0"
 	else
 		nvram set mac_clone_enable="1"
@@ -68,23 +68,28 @@ chmod 755 /tmp/netmac.sh
 start()
 {
 	curdir=/tmp/dogcom.conf
+	nvram set net_check="1"
 	touch $curdir
-	tmp_server="server= '$(nvram get dogcom_server )'"
+	tmp_server="server='$(nvram get dogcom_server )'"
 	
 	enable=$(nvram get dogcom_enable 2>/dev/null)
 	version=$(nvram get dogcom_version 2>/dev/null)
 	net_check=$(nvram get net_check 2>/dev/null)
-	if [ "$dogcom_enable"x != "1"x ]; then
+	
+	if [ "$enable"x = "1"x ]; then
+		echo "hahaha"
+	else
 		killall dogcom
 		return
 	fi
 	
 	if [ "$net_check"x = "1"x ]; then
-		netmac
+		netsh
 	else
 		rm -f /tmp/netmac.sh
+	fi
 	
-	if [ "$version" == "P" ]; then
+	if [ "$version"x = "P"x ]; then
 		mode='pppoe'
 		tmp_pppoe_flag="pppoe_flag='$(nvram get dogcom_pppoe_flag )'"
 		tmp_keep_alive2_flag="keep_alive2_flag='$(nvram get dogcom_keep_alive2_flag )'"
@@ -126,7 +131,7 @@ start()
 		echo $tmp_IPDOG >> $curdir
 	fi
 	
-	/tmp/dogcom -m $mode -c /tmp/dogcom.conf -e -d 
+	dogcom -m $mode -c /tmp/dogcom.conf -e -d 
 }
 
 start
