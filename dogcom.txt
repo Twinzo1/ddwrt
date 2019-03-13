@@ -25,6 +25,8 @@ nvram commit
 #---------Start drcom-----------------------
 nvram set dogcom_enable="0" #0 or 1 ;"1" is start
 #--------------------------------------------------
+/etc/dogcom.sh
+#--------------------启动脚本----------------------
 #Copy and paste Start drcom, version selection, version P,or version D commands to the 
 #command line to run. Boot startup must be saved in the open section
 #Enter "/tmp/dogcom.sh" on the command line to run the command
