@@ -36,3 +36,4 @@ nvram set dogcom_enable="0" #0 or 1 ;"1" is start
 */10 * * * * /tmp/netmac.sh  #Test every ten minutes.
 #To open, add one of the above commands to the timing task is ok
 #If the network connection fails, the script can automatically change the Mac address
+固化脚本进ddwrt，会使用不了，故此文本及dogcom.sh脚本废弃。
