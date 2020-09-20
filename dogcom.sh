@@ -1,5 +1,5 @@
 #!/bin/sh
-#Cpyright by Twizo<1282055288@qq.com>
+#Copyright by Twizo<1282055288@qq.com>
 #此脚本是面向ddwrt的，如果支持jffs2请开启jffs2，将其保存在jffs文件夹中。
 #如果不支持，请将其及程序固化在固件中。
 #使用教程：先使用wireshark抓包，然后去 分析心跳包，然后将配置文件填写在对应版本位置
